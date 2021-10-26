@@ -1,0 +1,14 @@
+<%- include('../header',{title:'Catalog'}); %>
+<main class="container max-w-4xl mx-auto">
+  <div id="wrapper" class="mt-8">
+    <h1 class="text-2xl font-bold text-gray-600">Books Catalog</h1>
+    <ul>
+      <li><strong>Books:</strong><%= bookcount %></li>
+      <li><strong>Copies:</strong><%= bookinstancecount %></li>
+      <li><strong>Copies Available:</strong><%= bookavailable %></li>
+      <li><strong>Author:</strong><%= authorcount %></li>
+      <li><strong>Genres:</strong><%= genrecount %></li>
+    </ul>
+  </div>
+</main>
+<%- include('../footer'); %>

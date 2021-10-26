@@ -1,0 +1,27 @@
+<%- include('../../header',{title: 'Add new genre'}); %>
+<main class="max-w-4xl mx-auto pb-8 bg-white">
+  <div id="wrapper" class="mt-8 space-y-4">
+    <h1 class="text-gray-600 text-xl font-bold">Add new Genre</h1>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <form class="mt-4" action="/catalog/genre/create" method="post">
+      <div class="flex border-2 border-gray-300 shadow-md max-w-max">
+        <input
+          class="text-base block p-1 focus:outline-none text-gray-600 h-full"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="genre"
+        />
+        <input
+          type="submit"
+          class="block py-1 px-3 bg-blue-500 text-white"
+          value="save"
+        />
+      </div>
+    </form>
+  </div>
+</main>
+
+<%- include('../../footer'); %>

@@ -1,0 +1,106 @@
+<%- include('../../header',{title: 'Add new author'}); %>
+<main class="max-w-4xl mx-auto pb-8 bg-white">
+  <div id="wrapper" class="mt-8 space-y-4">
+    <h1 class="text-gray-600 text-xl font-bold">Add new Author</h1>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <form
+      class="mt-4 max-w-xl space-y-4"
+      action="/catalog/author/create"
+      method="post"
+    >
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="first_name"
+          >First name :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="text"
+          name="first_name"
+          id="first_name"
+          placeholder="First name"
+        />
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="family_name"
+          >Family name :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="text"
+          name="family_name"
+          id="family_name"
+          placeholder="Family name"
+        />
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="date_of_birth"
+          >Date of Birth :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="date"
+          name="date_of_birth"
+          id="date_of_birth"
+          placeholder="Family name"
+        />
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="date_of_death"
+          >Date of Death :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="date"
+          name="date_of_death"
+          id="date_of_death"
+          placeholder="Family name"
+        />
+      </div>
+      <input
+        type="submit"
+        class="block py-1 px-3 bg-blue-500 text-white"
+        value="save"
+      />
+    </form>
+  </div>
+</main>
+
+<%- include('../../footer'); %>

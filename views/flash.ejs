@@ -1,0 +1,19 @@
+<% if(flashMessages){%>
+<div class="my-4 max-w-xl rounded-sm border">
+  <% if(flashMessages.success) {%>
+  <div class="bg-green-400 text-green-700 px-4 py-2">
+    <%= flashMessages.success %>
+  </div>
+  <%} else if(flashMessages.warning) {%>
+  <div class="bg-yellow-400 text-yellow-700 px-4 py-2">
+    <%= flashMessages.warning %>
+  </div>
+  <%}else if(flashMessages.error) {%>
+  <div class="bg-red-400 text-red-700 px-4 py-1">
+    <% flashMessages.error.forEach(msg => {%>
+    <small class="block font-bold"><%= msg %></small>
+    <%}) %>
+  </div>
+  <%} %>
+</div>
+<%} %>

@@ -1,0 +1,53 @@
+<%- include('../../header',{title: bookinstance.imprint}); %>
+<main class="max-w-4xl mx-auto">
+  <div id="wrapper" class="mt-8">
+    <h1 class="text-2xl font-bold text-gray-600">
+      Copy : <%= bookinstance.book.title %>
+    </h1>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <div
+      class="
+        border
+        bg-white
+        text-gray-600
+        shadow-md
+        rounded-md
+        mt-6
+        py-4
+        space-y-3
+      "
+    >
+      <h4 class="font-bold text-md text-gray-600 mt-1">
+        ID : <%= bookinstance._id %>
+      </h4>
+      <p><strong>Imprint : </strong><%= bookinstance.imprint %></p>
+      <p>
+        <strong>Status : </strong
+        ><span
+          class="
+            <%=
+            bookinstance.status
+            ===
+            'Available'
+            ?
+            'text-green-500':
+            bookinstance.status
+            ===
+            'Maintenance'
+            ?
+            'text-red-500'
+            :
+            'text-yellow-500'
+            %>
+          "
+          ><%= bookinstance.status %></span
+        >
+      </p>
+      <p><strong>Due Back : </strong><%= bookinstance.due_back %></p>
+    </div>
+  </div>
+</main>
+
+<%- include('../../footer'); %>

@@ -1,0 +1,44 @@
+<%- include('../../header',{title:"List of Authors"}); %>
+<main class="max-w-4xl mx-auto bg-white">
+  <div id="wrapper" class="mt-8">
+    <h1 class="text-2xl font-bold text-gray-600">List authors</h1>
+    <a
+      class="my-2 py-2 px-4 inline-block bg-blue-500 text-white rounded-sm"
+      href="/catalog/author/create"
+      >Add new author</a
+    >
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <div class="grid grid-cols-2 gap-3 mt-16">
+      <% authors.forEach(author => {%>
+      <a
+        class="
+          inline-block
+          border
+          bg-blue-100
+          shadow-md
+          rounded-sm
+          px-6
+          py-2
+          border-blue-200
+          text-gray-600
+          hover:bg-blue-400
+          transition-all
+          duration-300
+          ease-in-out
+        "
+        href="<%= author.url %>"
+      >
+        <div class="">
+          <h4 class="text-md font-bold py-1"><%= author.name %></h4>
+          <p class="text-sm">
+            <%= author.date_of_birth %> - <%= author.date_of_death %>
+          </p>
+        </div>
+      </a>
+      <%}) %>
+    </div>
+  </div>
+</main>
+<%- include('../../footer');%>

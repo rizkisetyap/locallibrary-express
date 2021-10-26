@@ -1,0 +1,23 @@
+<%- include('../../header',{title: genre.name}); %>
+<main class="max-w-4xl mx-auto pb-8 bg-white">
+  <div id="wrapper" class="mt-8">
+    <h1 class="text-2xl font-bold text-gray-600">Genre : <%= genre.name %></h1>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <h4 class="text-lg text-gray-500 my-6">Books</h4>
+    <div class="flex flex-col space-y-6">
+      <% books.forEach(book => {%>
+      <a
+        href="/catalog/book/<%= book._id %>"
+        class="text-gray-600 bg-blue-300 p-4 shadow-md rounded-lg"
+      >
+        <h5 class="font-base font-semibold mb-3"><%= book.title %></h5>
+        <p class=""><%= book.summary %></p>
+      </a>
+      <%}) %>
+    </div>
+  </div>
+</main>
+
+<%- include('../../footer'); %>

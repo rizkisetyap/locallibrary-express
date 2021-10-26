@@ -1,0 +1,33 @@
+<%- include('../../header',{title: author.name}); %>
+<main class="max-w-4xl mx-auto">
+  <div id="wrapper" class="mt-8">
+    <h1 class="text-2xl font-bold text-gray-600">
+      Author : <%= author.name %> Bio
+      <span class="block mt-1 text-sm font-normal"
+        ><%= author.date_of_birth %> - <%= author.date_of_death %></span
+      >
+    </h1>
+    <a
+      class="my-2 py-2 px-4 inline-block bg-red-500 text-white rounded-sm"
+      href="/catalog/author/<%= author._id %>/delete"
+      >Remove author</a
+    >
+    <h4 class="text-lg font-semibold text-gray-600 my-4">Books</h4>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <div class="space-y-4">
+      <% books.forEach(book => {%>
+      <a
+        href="/catalog/book/<%= book._id %>"
+        class="block text-gray-600 bg-blue-300 p-4 shadow-md rounded-lg"
+      >
+        <h5 class="font-base font-semibold mb-3"><%= book.title %></h5>
+        <p class=""><%= book.summary %></p>
+      </a>
+      <%}) %>
+    </div>
+  </div>
+</main>
+
+<%- include('../../footer'); %>

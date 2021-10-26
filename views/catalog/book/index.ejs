@@ -1,0 +1,43 @@
+<%- include('../../header',{title:"List of Books"}); %>
+<main class="max-w-4xl mx-auto">
+  <div id="wrapper" class="mt-8">
+    <h1 class="text-2xl font-bold text-gray-600">List Books</h1>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <a
+      class="my-2 py-2 px-4 inline-block bg-blue-500 text-white rounded-sm"
+      href="/catalog/book/create"
+      >Add new Book</a
+    >
+    <div class="grid grid-cols-2 gap-3 mt-16">
+      <% books.forEach(book => {%>
+      <a
+        class="
+          block
+          border
+          bg-blue-100
+          shadow-md
+          rounded-sm
+          px-6
+          py-2
+          border-blue-200
+          text-gray-600
+          hover:bg-blue-400
+          transition-all
+          duration-300
+          ease-in-out
+        "
+        href="<%= book.url %>"
+        ><div>
+          <h4 class="text-lg font-bold"><%= book.title %></h4>
+          <p class="text-sm text-gray-500">
+            By: <strong><%= book.author.name %></strong>
+          </p>
+        </div></a
+      >
+      <%}) %>
+    </div>
+  </div>
+</main>
+<%- include('../../footer');%>

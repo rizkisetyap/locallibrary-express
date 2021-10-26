@@ -1,0 +1,134 @@
+<%- include('../../header',{title: 'UpdtaeBook'}); %>
+<main class="max-w-4xl mx-auto pb-8 bg-white">
+  <div id="wrapper" class="mt-8 space-y-4">
+    <h1 class="text-gray-600 text-xl font-bold">Update Book</h1>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <form
+      class="mt-4 max-w-2xl space-y-4"
+      action="/catalog/book/<%= book._id.toString() %>/update"
+      method="post"
+    >
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="title"
+          >Title :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="text"
+          name="title"
+          id="title"
+          placeholder="First name"
+          value="<%= book.title %>"
+        />
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="author"
+          >Author</label
+        >
+        <select
+          class="
+            text-base
+            flex-1
+            text-gray-600
+            bg-blue-100
+            p-1.5
+            border-b border-blue-400
+          "
+          name="author"
+          id="author"
+        >
+          <option class="text-gray-400" selected value="">
+            select author...
+          </option>
+          <% authors.forEach(author => {%>
+          <option
+            selected="<%= book.author._id === author._id %>"
+            value="<%= author._id %>"
+          >
+            <%= author.name %>
+          </option>
+          <%}) %>
+        </select>
+      </div>
+      <div class="flex items-center">
+        <label
+          class="self-start text-base text-gray-600 block w-1/3"
+          for="summary"
+          >Summary :</label
+        >
+        <textarea
+          style="resize: none"
+          draggable="false"
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="date"
+          name="summary"
+          id="summary"
+          placeholder="Summary"
+        >
+<%= book.summary %></textarea
+        >
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="isbn"
+          >ISBN :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="text"
+          name="isbn"
+          id="isbn"
+          placeholder="ISBN"
+          value="<%= book.isbn %>"
+        />
+      </div>
+      <div class="flex items-center">
+        <p class="text-base text-gray-600 block w-1/3">Genre :</p>
+        <div class="bg-blue-100 p-1.5 text-gray-600 space-x-2 text-sm flex-1">
+          <% genres.forEach(genre => {%>
+          <div class="inline">
+            <input type="checkbox" name="genre" id="<%= genre._id %>" value="<%=
+            genre._id %>" <%= genre.checked ? 'checked':'' %> />
+            <label for="<%= genre._id %>"><%= genre.name %></label>
+          </div>
+          <%}) %>
+        </div>
+      </div>
+      <input
+        type="submit"
+        class="block py-1 px-3 bg-blue-500 text-white"
+        value="save"
+      />
+    </form>
+  </div>
+</main>
+
+<%- include('../../footer'); %>

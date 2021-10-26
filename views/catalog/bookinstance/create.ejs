@@ -1,0 +1,111 @@
+<%- include('../../header',{title: 'Add new Copies'}); %>
+<main class="max-w-4xl mx-auto pb-8 bg-white">
+  <div id="wrapper" class="mt-8 space-y-4">
+    <h1 class="text-gray-600 text-xl font-bold">Add new Copies</h1>
+    <!-- flashmessage -->
+    <%- include('../../flash'); %>
+    <!-- flashmessage -->
+    <form
+      class="mt-4 space-y-4"
+      action="/catalog/bookinstance/create"
+      method="post"
+    >
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="book"
+          >Book :</label
+        >
+        <select
+          class="
+            text-base
+            flex-1
+            text-gray-600
+            bg-blue-100
+            p-1.5
+            border-b border-blue-400
+          "
+          name="book"
+          id="book"
+        >
+          <option class="text-gray-400" selected value="">
+            select book...
+          </option>
+          <% books.forEach(book => {%>
+          <option value="<%= book._id %>"><%= book.title %></option>
+          <%}) %>
+        </select>
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="imprint"
+          >Imprint :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="text"
+          name="imprint"
+          id="imprint"
+          placeholder="Imprint"
+        />
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="due_back"
+          >Date when book available :</label
+        >
+        <input
+          class="
+            text-base
+            flex-1
+            block
+            focus:outline-none
+            text-gray-600
+            border-b border-blue-400
+            bg-blue-100
+            p-1.5
+          "
+          type="date"
+          name="due_back"
+          id="due_back"
+          placeholder="due_back"
+        />
+      </div>
+      <div class="flex items-center">
+        <label class="text-base text-gray-600 block w-1/3" for="status"
+          >status</label
+        >
+        <select
+          class="
+            text-base
+            flex-1
+            text-gray-600
+            bg-blue-100
+            p-1.5
+            border-b border-blue-400
+          "
+          name="status"
+          id="status"
+          placeholder="Status"
+        >
+          <option class="text-red-400" value="Maintenance">Maintenance</option>
+          <option class="text-green-400" value="Available">Available</option>
+          <option class="text-yellow-400" value="Loaned">Loaned</option>
+          <option class="text-blue-400" value="Reserved">Reserved</option>
+        </select>
+      </div>
+      <input
+        type="submit"
+        class="block py-1 px-3 bg-blue-500 text-white"
+        value="save"
+      />
+    </form>
+  </div>
+</main>
+
+<%- include('../../footer'); %>
